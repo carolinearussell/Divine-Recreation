@@ -1,0 +1,43 @@
+<%# <header id="header" class="row" data-hook>
+  <figure id="logo" class="columns six" data-hook><%= logo</figure>
+  <%= render partial: 'spree/shared/nav_bar' %> 
+   <%# <%= render partial: 'spree/shared/main_nav_bar' if store_menu?  %>  
+<%# </header>  %> 
+
+<nav class="navbar navbar-default nav-bar static top">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <figure id="logo" class="columns six" data-hook><%= logo img_options: { class: 'img-responsive', width: '138' }%></figure>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+      <% @taxonomies.each do |taxonomy| %>
+        <li class='dropdown'>
+        <%= link_to '#', data: { toggle: "dropdown" }, "aria-haspopup" => 'true' do %>
+        <%= taxonomy.name %> <span class='caret'></span>
+        <% end %>
+        <%= nav_tree(taxonomy.root, @taxon, 1) %>
+        </li>
+      <% end %>
+      </ul>
+      <ul class='nav navbar-nav navbar-right' ><li id="link-to-cart" data-hook>
+      <noscript>
+        <%= link_to t('spree.cart'), spree.cart_path %>
+      </noscript>
+      &nbsp;
+    </li>
+  </ul>
+  <script>Spree.fetch_cart('<%= j spree.cart_link_path %>')</script>
+</ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
