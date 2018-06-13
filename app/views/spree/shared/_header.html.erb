@@ -1,20 +1,14 @@
 <%# <header id="header" class="row" data-hook>
-  <figure id="logo" class="columns six" data-hook><%= logo</figure>
   <%= render partial: 'spree/shared/nav_bar' %> 
    <%# <%= render partial: 'spree/shared/main_nav_bar' if store_menu?  %>  
 <%# </header>  %> 
 
-<nav class="navbar navbar-default nav-bar static top">
+<nav class="navbar navbar-default nav-bar static top" role='navigation'>
   <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <figure id="logo" class="columns six" data-hook><%= logo img_options: { class: 'img-responsive', width: '138' }%></figure>
+      <figure id="logo"  data-hook>
+      <%= logo img_options: { class: 'img-responsive', width: '138' }%></figure>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
